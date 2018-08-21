@@ -34,3 +34,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+/Cthun/Packages
+/Cthun/ProjectSettings
