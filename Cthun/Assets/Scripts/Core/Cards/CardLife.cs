@@ -2,30 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : LifeBase
+public class CardLife : LifeBase
 {
-    public DeckController deck;
-    public HandPlayerBehaviour hand;
 
     // Use this for initialization
-    void Start()
+    protected void Start()
     {
         base.Start();
-        deck.SetupDeck(this);
-        hand.SetPlayer(this);
     }
 
     // Update is called once per frame
-    void  Update()
-    {        
+    protected void Update()
+    {
         base.Update();
-        if (Input.GetKeyDown(KeyCode.C))
-            deck.GetCard();
     }
 
     public override void OnDamage()
     {
-        
+
     }
 
     public override void OnDie()
