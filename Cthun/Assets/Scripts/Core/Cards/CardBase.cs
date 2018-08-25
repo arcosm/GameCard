@@ -25,5 +25,20 @@ public class CardBase : MonoBehaviour
     protected void Update()
     {
 
-    }    
+    }   
+    
+    public void OnClick()
+    {
+        Debug.Log("Ckiquei");
+    }
+
+    public void OnMouseHover()
+    {
+        Debug.Log("Mouse Sobre a carta");
+    }
+
+    public void OnMouseExit()
+    {
+        Debug.Log("sair da carta");
+    }
 }
