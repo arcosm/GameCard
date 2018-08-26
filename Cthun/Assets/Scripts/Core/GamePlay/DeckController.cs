@@ -20,7 +20,7 @@ public class DeckController : MonoBehaviour
     void Start()
     {
         initialSize = transform.localScale;
-        totalInitialCards = initListCards.Count;        
+        totalInitialCards = initListCards.Count;
         positionShowPlayer = player.hand.positionToShowPlayer.position;
     }
 
@@ -33,9 +33,16 @@ public class DeckController : MonoBehaviour
             if (currentTimeToShowPlayer > timeToShowPlayer)
             {
                 positionHand = player.hand.PositionNextCard;
-                targetPosition = positionHand;                
+                targetPosition = positionHand;
             }
             tempCard.transform.position = Vector3.Lerp(tempCard.transform.position, targetPosition, dumbGetCard * Time.deltaTime);
+            if (tempCard.transform.position == positionHand && tempCard != null)
+            {
+                CardBase tempCardComponent = tempCard.GetComponent<CardBase>();
+                tempCardComponent.SetOnHand();
+                tempCardComponent.SetStartPosition(positionHand);
+                tempCard = null;
+            }
         }
     }
 
