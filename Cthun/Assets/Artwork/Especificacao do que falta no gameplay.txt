@@ -1,0 +1,12 @@
+gerenciador da partida
+	Escolha do primeiro jogador
+	Determinar Vitória
+	Determinar Derrota
+	
+gerenciador do turno
+	Incrementar mana
+	Colocar cartas na mesa
+	Trocar de Turno
+	Compra carta
+	usar habilidade
+	

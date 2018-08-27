@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HandPlayerBehaviour : MonoBehaviour
 {
+    public StoneBehaviour stonePrefab;
     public Transform positionToShowPlayer;
     public Vector3 rangecardPosition;
     [System.NonSerialized]
@@ -25,7 +26,12 @@ public class HandPlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            GameObject tempStone = Instantiate(stonePrefab.gameObject) as GameObject;
+            CardMinion selectedCard = cards[0].GetComponent<CardMinion>();
+            tempStone.GetComponent<StoneBehaviour>().SetStone(selectedCard.attackPower, selectedCard.GetComponent<CardLife>().GetCurrentLife(), selectedCard.imgcard, false);
+        }
     }
 
     public void SetPlayer(PlayerController playerToSet)

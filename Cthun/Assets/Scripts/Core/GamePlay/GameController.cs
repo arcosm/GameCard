@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
-    public int totalMana, currentTrun = 1;
+    public int currentTrun = 1;
     public PlayerController player1;
 
 
