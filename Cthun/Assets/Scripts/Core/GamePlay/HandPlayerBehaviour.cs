@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HandPlayerBehaviour : MonoBehaviour
 {
-    public StoneBehaviour stonePrefab;
     public Transform positionToShowPlayer;
     public Vector3 rangecardPosition;
     [System.NonSerialized]
@@ -26,11 +25,9 @@ public class HandPlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.J) && player.canPlayerControl)
         {
-            GameObject tempStone = Instantiate(stonePrefab.gameObject) as GameObject;
-            CardMinion selectedCard = cards[0].GetComponent<CardMinion>();
-            tempStone.GetComponent<StoneBehaviour>().SetStone(selectedCard.attackPower, selectedCard.GetComponent<CardLife>().GetCurrentLife(), selectedCard.imgcard, false);
+            player.board.AddStone(cards[0]);
         }
     }
 
@@ -59,8 +56,10 @@ public class HandPlayerBehaviour : MonoBehaviour
         return Vector3.Lerp(minPosition, maxPosition, distance);
     }
 
-    public void AddCard(CardBase card)
+    public void AddCard(CardBase card, bool canplayerControl)
     {
+        card.SetOwer(canplayerControl);
+
         if (cards.Count < 10)
         {
             cards.Add(card);

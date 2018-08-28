@@ -12,7 +12,7 @@ public class DeckController : MonoBehaviour
     //animation Variables
     public float timeToShowPlayer, dumbGetCard;
     private float currentTimeToShowPlayer;
-    private bool moveToHand;
+    private bool moveToHand, canPlayerControl;
     private Vector3 positionShowPlayer, positionHand, targetPosition;
     private GameObject tempCard;
 
@@ -22,6 +22,7 @@ public class DeckController : MonoBehaviour
         initialSize = transform.localScale;
         totalInitialCards = initListCards.Count;
         positionShowPlayer = player.hand.positionToShowPlayer.position;
+        canPlayerControl = player.canPlayerControl;
     }
 
     // Update is called once per frame
@@ -54,12 +55,12 @@ public class DeckController : MonoBehaviour
             CardBase selectedCard = initListCards[randCardIndex];
             initListCards.RemoveAt(randCardIndex);
 
-            tempCard = Instantiate(selectedCard.gameObject, transform.position, selectedCard.transform.rotation) as GameObject;
+            tempCard = Instantiate(selectedCard.gameObject, transform.position, selectedCard.transform.rotation)as GameObject;
             ResizeDeck();
             moveToHand = true;
             targetPosition = positionShowPlayer;
             currentTimeToShowPlayer = 0;
-            player.hand.AddCard(tempCard.GetComponent<CardBase>());
+            player.hand.AddCard(tempCard.GetComponent<CardBase>(),canPlayerControl);
         }
     }
 

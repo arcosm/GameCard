@@ -10,6 +10,7 @@ public class StoneBehaviour : MonoBehaviour
 
     private bool isTount = false;
     private int life, attack;
+    private Vector3 stratPosition;
 
     // Use this for initialization
     void Start()
@@ -21,6 +22,12 @@ public class StoneBehaviour : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void SetStartPosition(Vector3 position)
+    {
+        stratPosition = position;
+        transform.position = stratPosition;
     }
 
     public void SetStone(int attack, int life, Texture imgCard, bool isTaunt)

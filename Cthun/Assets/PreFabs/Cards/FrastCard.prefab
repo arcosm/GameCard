@@ -276,7 +276,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1192602273128506}
   m_LocalRotation: {x: 0, y: 1, z: -0, w: -0.0000001872535}
-  m_LocalPosition: {x: 2.31, y: 0, z: -4.08}
+  m_LocalPosition: {x: 2.4559355, y: -3.2071042, z: 8.162233}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4912834341376654}
@@ -762,7 +762,7 @@ MonoBehaviour:
   textNameCard: {fileID: 102543027359541502}
   TextDescripitionCard: {fileID: 102120580544909524}
   rendereImgCard: {fileID: 23949439597428860}
-  offsetZoomPosition: {x: 0, y: 0, z: 0}
+  offsetZoomPosition: {x: 0, y: 5, z: 3.9}
   textAttack: {fileID: 102467223204279064}
   textLife: {fileID: 102828749656426040}
   attackPower: 0
@@ -992,7 +992,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1744789692784736}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -0.702}
+  m_LocalPosition: {x: 0, y: 0, z: -0.682}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224287749246331046}
@@ -1001,6 +1001,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.111, y: 0.568}
-  m_SizeDelta: {x: 1.937, y: 2.585}
+  m_AnchoredPosition: {x: -0.127, y: 0.568}
+  m_SizeDelta: {x: 1.947, y: 2.618}
   m_Pivot: {x: 0.5, y: 0.5}

@@ -12,9 +12,9 @@ public class CardBase : MonoBehaviour
     public TextMesh textMana, textNameCard, TextDescripitionCard;
     public Renderer rendereImgCard;
     public Vector3 offsetZoomPosition;
-    private Camera mainCamera;
+    private Camera mainCamera, pespectiveCamera;
     private Vector3 startPosition, zoomPosition, positionToGo;
-    private bool onHand;
+    private bool onHand, canPlayerControl, isFaceShowing = true, isDragging;
 
     // Use this for initialization
     protected void Start()
@@ -24,6 +24,8 @@ public class CardBase : MonoBehaviour
         TextDescripitionCard.text = descriptionCard;
         rendereImgCard.material.mainTexture = imgcard;
         mainCamera = Camera.main;
+        pespectiveCamera = Camera.allCameras[0];
+        GetComponentInChildren<Canvas>().worldCamera = pespectiveCamera;
     }
 
     // Update is called once per frame
@@ -42,7 +44,7 @@ public class CardBase : MonoBehaviour
 
     public void OnMouseHover()
     {
-        if (onHand)
+        if (onHand && !isDragging)
         {
             positionToGo = zoomPosition;
         }
@@ -50,7 +52,7 @@ public class CardBase : MonoBehaviour
 
     public void OnMouseExit()
     {
-        if (onHand)
+        if (onHand && !isDragging)
         {
             positionToGo = startPosition;
         }
@@ -60,6 +62,7 @@ public class CardBase : MonoBehaviour
     {
         if (onHand)
         {
+            isDragging = true;
             positionToGo = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             positionToGo.y = startPosition.y;
         }
@@ -69,6 +72,7 @@ public class CardBase : MonoBehaviour
     {
         if (onHand)
         {
+            isDragging = false;
             positionToGo = startPosition;
             ToggleLayer();
         }
@@ -80,9 +84,35 @@ public class CardBase : MonoBehaviour
             ToggleLayer();
     }
 
+    public void FlipCard()
+    {
+        Vector3 newRotation = transform.eulerAngles;
+        isFaceShowing = !isFaceShowing;
+
+        if (isFaceShowing)
+        {
+            newRotation.z = 0;
+        }
+        else
+        {
+            newRotation.z = 180;
+        }
+
+        transform.eulerAngles = newRotation;
+    }
+
     public void SetOnHand()
     {
         onHand = true;
+
+    }
+
+    public void SetOwer(bool canPlayerControl)
+    {
+        this.canPlayerControl = canPlayerControl;
+
+        if (!this.canPlayerControl)
+            FlipCard();
     }
 
     public void SetStartPosition(Vector3 position)

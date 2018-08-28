@@ -6,6 +6,9 @@ public class PlayerController : LifeBase
 {
     public DeckController deck;
     public HandPlayerBehaviour hand;
+    public StoneBoardController board;
+
+    public bool canPlayerControl;
 
     // Use this for initialization
     void Start()
