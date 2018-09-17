@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,7 +17,7 @@ public class CardBase : MonoBehaviour
     private bool onHand, canPlayerControl, isFaceShowing = true, isDragging;
 
     // Use this for initialization
-    protected void Start()
+    protected virtual void Start()
     {
         textMana.text = totalManaRequest.ToString();
         textNameCard.text = nameCard;
@@ -29,7 +29,7 @@ public class CardBase : MonoBehaviour
     }
 
     // Update is called once per frame
-    protected void Update()
+    protected virtual void Update()
     {
         if (transform.position != positionToGo && onHand)
         {

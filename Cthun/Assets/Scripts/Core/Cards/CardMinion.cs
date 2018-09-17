@@ -1,16 +1,16 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CardMinion : CardBase
 {
-    public TextMesh textAttack, textLife; 
+    public TextMesh textAttack, textLife;
     public int attackPower;
 
     private CardLife cardLife;
 
     // Use this for initialization
-    void Start()
+    protected override void Start()
     {
         base.Start();
         cardLife = GetComponent<CardLife>();
@@ -19,7 +19,7 @@ public class CardMinion : CardBase
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         base.Update();
     }

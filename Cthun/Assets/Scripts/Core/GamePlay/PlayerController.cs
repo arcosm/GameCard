@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +11,7 @@ public class PlayerController : LifeBase
     public bool canPlayerControl;
 
     // Use this for initialization
-    void Start()
+    protected override void Start()
     {
         base.Start();
         deck.SetupDeck(this);
@@ -19,8 +19,8 @@ public class PlayerController : LifeBase
     }
 
     // Update is called once per frame
-    void  Update()
-    {        
+    protected override void Update()
+    {
         base.Update();
         if (Input.GetKeyDown(KeyCode.C))
             deck.GetCard();
@@ -28,7 +28,7 @@ public class PlayerController : LifeBase
 
     public override void OnDamage()
     {
-        
+
     }
 
     public override void OnDie()

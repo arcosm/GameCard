@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,13 +8,13 @@ public abstract class LifeBase : MonoBehaviour
     protected int currentLife;
 
     // Use this for initialization
-    protected void Start()
+    protected virtual void Start()
     {
         currentLife = totalLife;
     }
 
     // Update is called once per frame
-    protected void Update()
+    protected virtual void Update()
     {
        
     }
